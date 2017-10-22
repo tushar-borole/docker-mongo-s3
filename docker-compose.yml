@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mongodb:
+    build: .
+    environment:
+      - "MONGO_INITDB_ROOT_USERNAME=admin"
+      - "MONGO_INITDB_ROOT_PASSWORD=password"
+      - "MONGO_DB_APP_USERNAME=kqed"
+      - "MONGO_DB_APP_PASSWORD=kqed@123"
+      - "MONGO_DB_APP_DATABASE=radioschedule"
+      - "AWS_ACCESS_KEY_ID=YOUR_KEY"
+      - "AWS_SECRET_ACCESS_KEY=YOUR_ACCESS_KEY"
+      - "S3_BUCKET=kqedmongobackup"
+      - "MONGO_PORT=27017"
+    volumes:
+      - ./setup:/docker-entrypoint-initdb.d
+    ports:
+      - 27017:27017
