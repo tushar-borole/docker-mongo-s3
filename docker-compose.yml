@@ -12,6 +12,7 @@ services:
       - "AWS_SECRET_ACCESS_KEY=YOUR_ACCESS_KEY"
       - "S3_BUCKET=kqedmongobackup"
       - "MONGO_PORT=27017"
+      - "CRON_SCHEDULE=* * * * *"
     volumes:
       - ./setup:/docker-entrypoint-initdb.d
     ports:
